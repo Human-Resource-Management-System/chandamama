@@ -35,6 +35,19 @@ public class HolidayDAOImpl implements HolidayDAO {
 	}
 
 	@Override
+	@Transactional
+	public List<Holiday> findAlloptedHolidays() {
+		Session session = sessionFactory.getCurrentSession();
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<Holiday> cq = cb.createQuery(Holiday.class);
+		Root<Holiday> root = cq.from(Holiday.class);
+		cq.select(root);
+		cq.where(cb.equal(root.get("hday_type"), "OPTN"));
+		Query<Holiday> query = session.createQuery(cq);
+		return query.getResultList();
+	}
+
+	@Override
 	public Holiday findHolidayById(int id) {
 		// TODO Auto-generated method stub
 		return null;

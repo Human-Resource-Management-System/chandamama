@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtered Table</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+  <input type="text" id="filterInput" placeholder="Search...">
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sowjanya</td>
+        <td>21</td>
+        <td>America</td>
+      </tr>
+      <tr>
+        <td>Satvika</td>
+        <td>23</td>
+        <td>Australia</td>
+      </tr>
+      <tr>
+        <td>Nagaraju</td>
+        <td>22</td>
+        <td>India</td>
+      </tr>
+      <tr>
+        <td>Bhaskar</td>
+        <td>21</td>
+        <td>New Zealand</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    $(document).ready(function() {
+      $("#filterInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#dataTable tbody tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

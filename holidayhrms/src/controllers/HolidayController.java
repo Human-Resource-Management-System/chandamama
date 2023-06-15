@@ -38,8 +38,13 @@ public class HolidayController {
 	}
 
 	@RequestMapping("/yourholidays")
-	public String yourholidayss() {
-		return "yourholiday";
+
+	public String showoptedHolidays(Model model) {
+		List<Holiday> holidays = hd.findAlloptedHolidays();
+
+		model.addAttribute("holidays", holidays);
+
+		return "holidays";
 	}
 
 	@RequestMapping("/admindashboard")

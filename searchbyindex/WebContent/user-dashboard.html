@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -140,9 +138,7 @@
   font-size: 40px;
   text-align: center;
 }
-   
-<style>
-
+  
 
 
 .row {
@@ -198,8 +194,7 @@ canvas {
 
 </style>
 
-   
-   </style>
+  
  
  
  
@@ -241,7 +236,7 @@ canvas {
                 <a onclick="getHolidays()"><i class="ri-calendar-line"></i> Holidays</a>
               </li>
               <li class="item">
-                <a onclick="getyourHolidays()"><i class="ri-file-list-line"></i> Leaves</a>
+                <a href="#"><i class="ri-file-list-line"></i> Leaves</a>
               </li>
             </ul>
           </li>
@@ -295,7 +290,11 @@ canvas {
     </nav>
 
     <main class="main">
-      <h1>Welcome to Pennant Technologies....</h1>
+      <script>
+      // Retrieve the username from session storage
+      var username = sessionStorage.getItem('username');
+      document.write('Hi ' + username);
+    </script>
     </main>
 
   
@@ -536,7 +535,7 @@ var fieldMessage = $('<div class="field-message" id="msg1">No of leaves taken</d
 
     
     
-    function getyourHolidays() {
+    function getyourtHolidays() {
   	  $.ajax({
   	    type: "POST",
   	    url: "yourholidays",
@@ -558,4 +557,3 @@ var fieldMessage = $('<div class="field-message" id="msg1">No of leaves taken</d
   
   </body>
 </html>
-
